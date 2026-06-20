@@ -1,0 +1,31 @@
+const invitados = ["Ana", "Carlos", "Cecilia", "Daniel", "Diana", "Eduardo"];
+
+function encontrarPareja(arr) {
+    let inicio = 0;      // Primer puntero (Invitado A)
+    let siguiente = 1;   // Segundo puntero (Invitado B - el que va al lado)
+
+    // El ciclo sigue mientras el puntero "siguiente" no se salga del arreglo
+    while (siguiente < arr.length) {
+        
+        // 1. Obtenemos la primera letra (inicial) de cada invitado usando [0]
+        const inicialInicio = arr[inicio][0];
+        const inicialSiguiente = arr[siguiente][0];
+
+        // 2. Comparamos si las iniciales son exactamente iguales
+        if (inicialInicio === inicialSiguiente) {
+            // 3. Si coinciden, detenemos la búsqueda y devolvemos la pareja
+            return [arr[inicio], arr[siguiente]];
+        }
+
+        // 4. Si no coinciden, avanzamos ambos punteros un paso hacia la derecha
+        inicio++;
+        siguiente++;
+    }
+
+    // 5. Si el ciclo termina y no encontramos nada, devolvemos null
+    return null; 
+}
+
+// 6. Mostramos el resultado en la consola
+console.log(encontrarPareja(invitados)); 
+// Resultado esperado: ["Carlos", "Cecilia"]
