@@ -1,2 +1,0 @@
-// viajeManager.js
-
